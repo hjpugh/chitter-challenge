@@ -2,6 +2,7 @@ require 'user'
 
 describe User do
   mock_user = User.new('Bob B', 'bobb', 'bob@bob.co.uk')
+  mock_post = mock_user.post(content: 'abc')
 
   it 'has a real name' do
     expect(mock_user.name).to eq('Bob B')
@@ -16,16 +17,9 @@ describe User do
   end
 
   describe '#post' do
-    it 'allows the user to post a peep' do
-      expect(mock_user.post).to be_a(Peep)
-    end
-
-    it 'associates the users real name to the peep' do
-      expect(mock_user.post.user).to eq('Bob B')
-    end
-
-    it 'associates the users user_name to the peep' do
-      expect(mock_user.post.user_name).to eq('bobb')
+    it 'adds a peep to the database' do
+      mock_user.post
+      expect(Peep.all.empty?).to be false
     end
   end
 end

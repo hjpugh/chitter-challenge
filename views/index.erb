@@ -1,1 +1,8 @@
 <h1>Hello</h1>
+<h2><%= @peeps %></h2>
+
+
+<form action="/new_peep" method="post" id="new_peep">
+  New Peep: <input type="text" name="content">
+  <input type="submit">
+</form>

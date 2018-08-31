@@ -8,10 +8,11 @@ class User
     @email = email
   end
 
-  def post(peep = Peep.new(self))
-    peep = peep
+  def post(peep = Peep, content: nil)
+    peep = peep.create(user: self, content: content)
   end
 end
 
 # us = User.new('H', 'hjp', 'hjp@gmail.com')
-# p us.post
+# us.post(content: 'hello')
+# p Peep.all
