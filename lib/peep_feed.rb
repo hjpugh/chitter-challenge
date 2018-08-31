@@ -4,6 +4,7 @@ class PeepFeed
   def self.feed
     connection = env_check
     peeps = connection.exec("SELECT * FROM peeps")
+    peeps.map { |peep| { content: peep['content'], name: peep['name'] } }
   end
 
   private
@@ -15,4 +16,3 @@ class PeepFeed
     end
   end
 end
-
