@@ -24,6 +24,7 @@ class Peep
   end
 
   def self.create(date_posted = Time.now.strftime('%D - %H:%M'), user:, content:)
+    return nil if !user
     connection = env_check
     result = connection.exec("INSERT INTO peeps (name, user_name, content, date_posted) 
       VALUES('#{user.name}', '#{user.user_name}', '#{content}', '#{date_posted}')

@@ -45,7 +45,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/new_peep' do
-    session[:current_user].post(content: params[:content])
+    session[:current_user] ? session[:current_user].post(content: params[:content]) : flash[:notice] = 'Unable to post, not logged in'
     redirect('/')
   end
 

@@ -23,6 +23,10 @@ describe Peep do
       Peep.create(user: mock_user, content: 'abc')
       expect(Peep.all.empty?).to be false
     end
+
+    it 'does not add peep if not logged in' do
+      expect(Peep.create(user: nil, content: 'abc')).to be nil
+    end 
   end
 
   describe '.feed' do
