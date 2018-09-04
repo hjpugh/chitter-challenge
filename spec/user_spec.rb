@@ -1,7 +1,7 @@
 require 'user'
 
 describe User do
-  mock_user = User.new('Bob B', 'bobb', 'bob@bob.co.uk')
+  mock_user = User.new(id: 1, name: 'Bob B', user_name: 'bobb', email: 'bob@bob.co.uk', password: 'hello')
   mock_post = mock_user.post(content: 'abc')
 
   it 'has a real name' do
@@ -14,6 +14,13 @@ describe User do
 
   it 'has an email address' do
     expect(mock_user.email).to eq('bob@bob.co.uk')
+  end
+
+  describe '.sign_up' do
+    it 'adds a new user to the database' do
+      User.sign_up(name: 'H', user_name: 'hjp123', email: 'hjp@gmail..com', password: 'hjp')
+      (expect !!(User.return_user('hjp123'))).to be true
+    end
   end
 
   describe '#post' do

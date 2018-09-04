@@ -2,9 +2,29 @@
 
 <form action="/new_peep" method="post">
   New Peep: <input type="text" name="content">
-  <input type="submit" value="Submit">
+  <input type="submit" name="submit_peep" value="Submit">
 </form>
 
 <form action="/peep_feed" method="get">
   <input type="submit" value="FEED">
 </form>
+
+<form action="/sign_up" method="get">
+  <input type="submit" value="Sign Up">
+</form>
+
+<form action="/log_in" method="post">
+  User_name: <input type="text" name="user_name">
+  Password: <input type="password" name="password">
+  <input type="submit" value="Log in">
+</form>
+
+<br><br>
+
+<form action="/log_out" method="post">
+  <input type="submit" value="Log out">
+</form>
+
+<h2>
+  <%= flash[:notice] %>
+</h2>

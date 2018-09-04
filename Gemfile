@@ -15,4 +15,6 @@ gem 'capybara'
 gem 'sinatra'
 gem 'rack'
 gem 'pg'
+gem 'bcrypt'
+gem 'sinatra-flash'
 

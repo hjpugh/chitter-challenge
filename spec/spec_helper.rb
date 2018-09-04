@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_database'
+require_relative './features/web_helpers.rb'
 
 Capybara.app = Chitter
 
@@ -16,6 +17,8 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
+
+include Capybara::DSL
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
