@@ -6,7 +6,9 @@ feature 'Allows users to sign up' do
     click_button('Sign Up')
     fill_in('name', with: 'H')
     fill_in('user_name', with: 'hjp')
+    fill_in('email', with: '123@mail.com')
     fill_in('password', with: 'abc123')
+    click_button('Submit')
     expect(User.all.empty?).to be false
   end
 end
